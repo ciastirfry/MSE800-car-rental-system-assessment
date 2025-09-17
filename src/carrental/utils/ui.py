@@ -1,6 +1,5 @@
 # ==============================================================================
 # Console drawing helpers (pretty boxes, prompts).
-# This file is the 'explained like I am 10' version with simple comments.
 # Every step tells you plainly what it does.
 
 # ==============================================================================

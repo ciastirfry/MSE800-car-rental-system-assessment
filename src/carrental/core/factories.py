@@ -1,6 +1,5 @@
 # ==============================================================================
 # Factory that builds Car objects in one place.
-# This file is the 'explained like I am 10' version with simple comments.
 # Every step tells you plainly what it does.
 #   - DESIGN PATTERN: Factory Method (object creation lives here)
 # ==============================================================================
