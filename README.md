@@ -192,7 +192,7 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 ## Configuration
 The app runs without extra configuration. Defaults:
 - DB filename: `carrental.db` (location logic in `storage/db.py`).
-- Seeder defaults: `admin@local` / `Admin@123`, `--car-count 10`. (Optional)
+- Seeder defaults: `admin@admin.com` / `admin123`, `--car-count 10`. (Optional)
 - No environment variables are required for basic usage.
 
 ---
