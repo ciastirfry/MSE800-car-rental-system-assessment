@@ -124,10 +124,13 @@ Scripts in `scripts/` work **from anywhere** (they `cd` to project root). They c
 
 **Source** (`src/carrental/`)
 - `main.py` — **CLI entrypoint**; wires menus & services.  
-- `__init__.py` — Package marker.  
-- `utils/ui.py` — Terminal UI helpers (boxes, prompts).  
+- `__init__.py` — Package marker.
+- `__main__.py` - Acts as the package entry point so python -m <package> launches the CLI app (wiring menus/services to start the program).
+- `utils/ui.py` — Terminal UI helpers (boxes, prompts).
+- `utils/validators.py` — Provides reusable input checks (email/password/date/number/menu) to validate and sanitize user entries consistently across the CLI. 
 - `storage/db.py` — SQLite helper (**Singleton**); portable DB path; **schema lock** via `PRAGMA user_version`.  
-- `storage/repositories.py` — **Repository layer** for Users, Cars, Bookings (isolates SQL).  
+- `storage/repositories.py` — **Repository layer** for Users, Cars, Bookings (isolates SQL).
+- `storage/seed.py` — Seeds the database by creating a default admin account and topping up sample cars (idempotent, no schema changes).
 - `services/auth_service.py` — Registration, login, session helpers, admin utilities.  
 - `services/inventory_service.py` — Car listing/add/edit/toggle.  
 - `services/rental_service.py` — Booking creation/list/cancel; pricing hook (Strategy‑ready).  
