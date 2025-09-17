@@ -1,6 +1,5 @@
 # ==============================================================================
 # SQLite helper that opens/creates our database file.
-# This file is the 'explained like I am 10' version with simple comments.
 # Every step tells you plainly what it does.
 #   - DESIGN PATTERN: Singleton (single Database used app‑wide)
 # ==============================================================================

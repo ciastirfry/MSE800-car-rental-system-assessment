@@ -1,6 +1,5 @@
 # ==============================================================================
 # Business rules for bookings and price calculation.
-# This file is the 'explained like I am 10' version with simple comments.
 # Every step tells you plainly what it does.
 #   - DESIGN PATTERN: Observer (place where we would notify listeners when a booking is approved)
 # ==============================================================================
