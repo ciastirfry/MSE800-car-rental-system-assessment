@@ -138,48 +138,49 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 **Scripts** (`scripts/`)
 - `build_windows.bat` — Windows (CMD) build script; robust path handling; uses `py -3.x` if available.
 
-**Source** (`src/carrental/`)
-- `main.py` — **CLI entrypoint**; wires menus & services.  
-- `__init__.py` — Package marker.
-- `__main__.py` — Acts as the package entry point so python -m <package> launches the CLI app (wiring menus/services to start the program).
-- `utils/ui.py` — Terminal UI helpers (boxes, prompts).
-- `utils/validators.py` — Provides reusable input checks (email/password/date/number/menu) to validate and sanitize user entries consistently across the CLI. 
-- `storage/db.py` — SQLite helper (**Singleton**); portable DB path; **schema lock** via `PRAGMA user_version`.  
-- `storage/repositories.py` — **Repository layer** for Users, Cars, Bookings (isolates SQL).
-- `storage/seed.py` — Seeds the database by creating a default admin account and topping up sample cars (idempotent, no schema changes).
-- `services/auth_service.py` — Registration, login, session helpers, admin utilities.  
-- `services/inventory_service.py` — Car listing/add/edit/toggle.  
-- `services/rental_service.py` — Booking creation/list/cancel; pricing hook (Strategy‑ready).  
-
 ## Project Structure & File Purposes
 
 ```
 .
 ├─ LICENSE                       # MIT License text
 ├─ README.md                     # This file (place at repo root)
-├─ README-BUILD.md               # Build & packaging how‑to
 ├─ requirements.txt              # Python dependencies
+├─ docs/
+│  ├─ uml/
+│  │  ├─ class.md                # Class Diagram
+│  │  ├─ sequence.md             # Sequence Diagram
+│  │  └─ use_case.md             # Use Case Diagram
+│  └─ maintenance_support.md     # Maintenance & Support Plan
 ├─ scripts/
-│  ├─ build_windows.ps1          # Windows (PowerShell) packager
-│  ├─ build_windows.bat          # Windows (CMD) packager
-│  └─ build_linux.sh             # Linux packager
+│  └─ build_windows.bat          # Windows (CMD) packager
 ├─ tools/
-│  └─ seed_data.py               # Seeder entrypoint (Admin + cars; idempotent)
+│  ├─ seed_runner.py             # Seeder entrypoint (Admin + cars; idempotent)
+│  └─ app_runner.py              # Uses absolute imports (avoids relative-import issues in PyInstaller)
+├─ tests/
+│  └─ test_services.py           # pytest setup
 └─ src/
    └─ carrental/
       ├─ __init__.py             # Package marker
+      ├─ __main__.py             # Acts as the package entry point
       ├─ main.py                 # CLI entrypoint; wires menus & services
       ├─ utils/
-      │  └─ ui.py                # Helper functions for pretty CLI (boxes, prompts)
+      │  ├─ ui.py                # Helper functions for pretty CLI (boxes, prompts)
+      │  └─ validators.py        # Provides reusable input checks
       ├─ storage/
       │  ├─ db.py                # SQLite helper (Singleton); portable DB path + schema lock
-      │  └─ repositories.py      # Repositories for Users, Cars, Bookings (SQL isolated here)
+      │  ├─ repositories.py      # Repositories for Users, Cars, Bookings (SQL isolated here)
+      │  └─ seed.py              # Seeds the database by creating a default admin account and topping up sample cars
       ├─ services/
       │  ├─ auth_service.py      # Register/Login/Session; admin helpers
       │  ├─ inventory_service.py # Car listing/add/edit/toggle
       │  └─ rental_service.py    # Booking creation/list/cancel; price logic hook
-      └─ models/                 # (Optional) Domain models if separated from services
-```
+      ├─ core/                   
+      │   ├─ factories.py        # Factory that builds Car objects in one place
+      │   ├─ models.py           # Data models for User, Car, and Booking
+      │   └─ strategies.py       # Pricing and payment strategies (Strategy pattern)
+      └─ cli/
+          └─ commands.py         # Command objects for each menu action (Command pattern)
+``` 
 
 **Docs (optional)**
 - `docs/` — UML diagrams, test plans, maintenance plan, etc.
@@ -215,7 +216,7 @@ See the bundled `LICENSE` file for the full text.
 ---
 
 ## Credits
-**Developer:** Fredierick “Fred” Saladas — (GitHub: [@ciastirfry](https://github.com/ciastirfry/MSE800-car-rental-system-assessment))
+**Developer:** Fredierick “Fred” Saladas — (GitHub: [@ciastirfry](https://github.com/ciastirfry/MSE800-car-rental-system-assessment))  
 **Course/Context:** Master of Software Engineering (Yoobee) — *Professional Software Engineering: Car Rental System*  
 **Acknowledgments:** Classmates and instructors for guidance and feedback.
 
