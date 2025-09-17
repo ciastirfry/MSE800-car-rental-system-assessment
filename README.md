@@ -87,6 +87,22 @@ Scripts in `scripts/` work **from anywhere** (they `cd` to project root). They c
 - App: `dist/FredsCarRental(.exe)`  
 - Seeder: `dist/FredsCarRentalSeeder(.exe)`
 
+## Seeding Data (Admin & Cars)
+Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is **idempotent** (safe to run multiple times).
+
+**Defaults**:
+- Admin: `admin@admin.com` / `admin123`
+- Cars: ensures at least **13** cars
+
+**Custom flags (packaged or source)**: (Optional not required)
+```bash
+./FredsCarRentalSeeder \
+  --admin-email admin@local \
+  --admin-name "Administrator" \
+  --admin-password "ChangeMe@123" \
+  --car-count 12
+```
+
 ### D. Operate the CLI (User Walkthrough)
 - **Home / Login Screen**  
   `1) Login` → enter email/password  
@@ -125,7 +141,7 @@ Scripts in `scripts/` work **from anywhere** (they `cd` to project root). They c
 **Source** (`src/carrental/`)
 - `main.py` — **CLI entrypoint**; wires menus & services.  
 - `__init__.py` — Package marker.
-- `__main__.py` - Acts as the package entry point so python -m <package> launches the CLI app (wiring menus/services to start the program).
+- `__main__.py` — Acts as the package entry point so python -m <package> launches the CLI app (wiring menus/services to start the program).
 - `utils/ui.py` — Terminal UI helpers (boxes, prompts).
 - `utils/validators.py` — Provides reusable input checks (email/password/date/number/menu) to validate and sanitize user entries consistently across the CLI. 
 - `storage/db.py` — SQLite helper (**Singleton**); portable DB path; **schema lock** via `PRAGMA user_version`.  
@@ -134,6 +150,36 @@ Scripts in `scripts/` work **from anywhere** (they `cd` to project root). They c
 - `services/auth_service.py` — Registration, login, session helpers, admin utilities.  
 - `services/inventory_service.py` — Car listing/add/edit/toggle.  
 - `services/rental_service.py` — Booking creation/list/cancel; pricing hook (Strategy‑ready).  
+
+## Project Structure & File Purposes
+
+```
+.
+├─ LICENSE                       # MIT License text
+├─ README.md                     # This file (place at repo root)
+├─ README-BUILD.md               # Build & packaging how‑to
+├─ requirements.txt              # Python dependencies
+├─ scripts/
+│  ├─ build_windows.ps1          # Windows (PowerShell) packager
+│  ├─ build_windows.bat          # Windows (CMD) packager
+│  └─ build_linux.sh             # Linux packager
+├─ tools/
+│  └─ seed_data.py               # Seeder entrypoint (Admin + cars; idempotent)
+└─ src/
+   └─ carrental/
+      ├─ __init__.py             # Package marker
+      ├─ main.py                 # CLI entrypoint; wires menus & services
+      ├─ utils/
+      │  └─ ui.py                # Helper functions for pretty CLI (boxes, prompts)
+      ├─ storage/
+      │  ├─ db.py                # SQLite helper (Singleton); portable DB path + schema lock
+      │  └─ repositories.py      # Repositories for Users, Cars, Bookings (SQL isolated here)
+      ├─ services/
+      │  ├─ auth_service.py      # Register/Login/Session; admin helpers
+      │  ├─ inventory_service.py # Car listing/add/edit/toggle
+      │  └─ rental_service.py    # Booking creation/list/cancel; price logic hook
+      └─ models/                 # (Optional) Domain models if separated from services
+```
 
 **Docs (optional)**
 - `docs/` — UML diagrams, test plans, maintenance plan, etc.
@@ -169,7 +215,7 @@ See the bundled `LICENSE` file for the full text.
 ---
 
 ## Credits
-**Developer:** Fredierick “Fred” Saladas — GitHub: @ciastirfry https://github.com/ciastirfry/MSE800-car-rental-system-assessment
+**Developer:** Fredierick “Fred” Saladas — (GitHub: [@ciastirfry](https://github.com/ciastirfry/MSE800-car-rental-system-assessment))
 **Course/Context:** Master of Software Engineering (Yoobee) — *Professional Software Engineering: Car Rental System*  
 **Acknowledgments:** Classmates and instructors for guidance and feedback.
 
