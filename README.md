@@ -111,7 +111,7 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
   `1) Login` → enter email/password  
   `2) Register` → create user account  
   `0) Exit` → quit
-- **Demo Video**
+- **Demo Video**  
   A short demo video is included as part of the submission to demonstrate how to navigate the car rental system.
 - **Admin**  
   Manage cars (add/update/delete), review bookings, view cars.
