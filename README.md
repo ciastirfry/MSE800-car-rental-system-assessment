@@ -15,7 +15,7 @@ This README is written for **Users** and **Programmers** and covers configuratio
 3. [Step‑by‑Step: Configure, Install, and Operate](#stepbystep-configure-install-and-operate)
    - [A. Quick Start (Binaries)](#a-quick-start-binaries)
    - [B. Run From Source (Developers)](#b-run-from-source-developers)
-   - [C. Build Executables (Windows & Linux)](#c-build-executables-windows--linux)
+   - [C. Build Executables (Windows)](#c-build-executables-windows)
    - [D. Operate the CLI (User Walkthrough)](#d-operate-the-cli-user-walkthrough)
 4. [Database Behavior & Schema Stability](#database-behavior--schema-stability)
 5. [All Relevant Files & Purpose](#all-relevant-files--purpose)
@@ -77,7 +77,7 @@ Run the app from the **project root**:
   run_carrental.bat
   ```
 
-### C. Build Executables (Windows & Linux)
+### C. Build Executables (Windows)
 Scripts in `scripts/` work **from anywhere** (they `cd` to project root). They create a local `.venv`, install **PyInstaller**, and produce binaries under `dist/`.
 
 **Windows**  
@@ -221,7 +221,7 @@ This project uses pytest. Tests run in temp folders with a fresh SQLite DB, so y
 **Quick start:**
 ```bash
 python -m venv .venv
-# Windows: .\.venv\Scripts\activate    Linux/macOS: source .venv/bin/activate
+# Windows: .\.venv\Scripts\activate 
 pip install -r requirements.txt pytest
 python -m pytest -vv
 
