@@ -50,13 +50,13 @@ This README is written for **Users** and **Programmers** and covers configuratio
 ## Step‑by‑Step: Configure, Install, and Operate
 
 ### A. Quick Start (Binaries)
-If you downloaded packaged builds (./dist folder), you should have two files in the same folder:
+If you downloaded packaged (zip) builds executable attached in the blackboard, you should have two files in the same folder:
 - `FredsCarRental.exe` (Windows)
 - `FredsCarRentalSeeder.exe` (Optional, the package is already pre seeded)
 
 1. **Place both executables in the same folder.**  
-2. **Run the app** (`FredsCarRental.exe` or `./FredsCarRental`). On first run it creates **`carrental.db` next to the executable**.   
-3. **Login as Admin**: `admin@admin.com` / `admin123` → **change password immediately**.  
+2. **Run the app** (`FredsCarRental.exe`).   
+3. **Login as Admin**: `admin@admin.com` / `admin123`
 4. Proceed to [Operate the CLI](#d-operate-the-cli-user-walkthrough).
 
 > **Portable:** You can move the folder (including `carrental.db`) anywhere—USB‑friendly. (Optional)
@@ -117,6 +117,8 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
   List available cars, create booking, view own bookings.
 - **Validation**  
   The CLI reprompts on invalid input and shows clear messages for common mistakes (e.g., wrong date format).
+- **Demo Video**
+  A short demo video is included as part of the submission to demonstrate how to navigate the car rental system  
 
 ---
 
