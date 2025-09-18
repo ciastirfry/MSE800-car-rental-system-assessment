@@ -193,10 +193,13 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 `docs/` — UML diagrams, test plans, maintenance plan, etc.
 
 - See the [Use Case Diagram][usecase].
+
 [usecase]: docs/uml/UML_Use_Case_Diagram.png
 - See the [Sequence Diagram][usecase].
+
 [usecase]: docs/uml/UML_Sequence_Diagram.png
 - See the [Class Diagram][usecase].
+
 [usecase]: docs/uml/UML_Class_Diagram.png
 
 
