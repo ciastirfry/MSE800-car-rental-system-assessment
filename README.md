@@ -12,17 +12,19 @@ This README is written for **Users** and **Programmers** and covers configuratio
 ## Table of Contents
 1. [Features](#features)
 2. [System Requirements](#system-requirements)
-3. [Step‑by‑Step: Configure, Install, and Operate](#step-by-step-configure-install-and-operate)
+3. [Step‑by‑Step: Configure, Install, and Operate](#stepbystep-configure-install-and-operate)
    - [A. Quick Start (Binaries)](#a-quick-start-binaries)
    - [B. Run From Source (Developers)](#b-run-from-source-developers)
    - [C. Build Executables (Windows & Linux)](#c-build-executables-windows--linux)
    - [D. Operate the CLI (User Walkthrough)](#d-operate-the-cli-user-walkthrough)
 4. [Database Behavior & Schema Stability](#database-behavior--schema-stability)
 5. [All Relevant Files & Purpose](#all-relevant-files--purpose)
-6. [Configuration](#configuration)
-7. [Known Bugs / Issues](#known-bugs--issues)
-8. [License](#license)
-9. [Credits](#credits)
+6. [Project Structure & File Purposes](#project-structure--file-purposes)
+7. [Configuration](#configuration)
+8. [Testing](#testing)
+9. [Known Bugs / Issues](#known-bugs--issues)
+10. [License](#license)
+11. [Credits](#credits)
 
 ---
 
@@ -157,7 +159,10 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 │  ├─ seed_runner.py             # Seeder entrypoint (Admin + cars; idempotent)
 │  └─ app_runner.py              # Uses absolute imports (avoids relative-import issues in PyInstaller)
 ├─ tests/
-│  └─ test_services.py           # pytest setup
+│  ├─ test_services.py           # pytest setup
+│  ├─ conftest.py                # Isolates temp DB & resets DB singleton 
+│  ├─ run_tests.bat              # One-click: setup venv + run pytest (verbose)  
+│  └─ test_report.bat            # One-click: tests + coverage + HTML report  
 └─ src/
    └─ carrental/
       ├─ __init__.py             # Package marker
@@ -197,13 +202,40 @@ The app runs without extra configuration. Defaults:
 
 ---
 
+## Testing
+This project uses pytest. Tests run in temp folders with a fresh SQLite DB, so your real data is safe.
+
+**Quick start:**
+```bash
+python -m venv .venv
+# Windows: .\.venv\Scripts\activate    Linux/macOS: source .venv/bin/activate
+pip install -r requirements.txt pytest
+python -m pytest -vv
+
+```
+
+**Coverage & HTML report:**
+```bash
+pip install pytest-cov pytest-html
+python -m pytest -vv --cov=src/carrental --cov-report=term-missing:skip-covered \
+  --html=pytest_report.html --self-contained-html
+
+```
+**Shortcuts (Windows):**
+- `run_tests.bat` — setup + run tests (verbose)
+- `test_report.bat` — coverage + HTML report (auto-opens) 
+
+---
+
 ## Known Bugs / Issues / Require improvements
 - **Schema mismatch stop**: If `PRAGMA user_version != 1`, the app exits with a schema version error (by design). Fix by setting `user_version=1` or applying a planned migration.
 - **Unsigned binaries**: Fresh PyInstaller executables may trigger antivirus warnings. Whitelist locally or code‑sign for distribution.
 - **Single‑user CLI focus**: No concurrency control for multi‑process access; simultaneous writes may contend.
 - **Date validation edge cases**: Common formats are validated; extreme edge cases may require review.
+- **No payments/invoicing**:no email notifications.
 - **No GUI**: The brief requires a CLI; there is no graphical UI.
 - **Admin**: Admin management can have more security (Subject for enhancement)
+These are acceptable limitations for the assessment scope and noted for future work.
 
 ---
 
