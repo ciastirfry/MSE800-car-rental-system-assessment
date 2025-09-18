@@ -190,7 +190,15 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 ``` 
 
 **Docs (optional)**
-- `docs/` — UML diagrams, test plans, maintenance plan, etc.
+`docs/` — UML diagrams, test plans, maintenance plan, etc.
+
+- See the [Use Case Diagram][usecase].
+[usecase]: docs/uml/UML_Use_Case_Diagram.png
+- See the [Sequence Diagram][usecase].
+[usecase]: docs/uml/UML_Sequence_Diagram.png
+- See the [Class Diagram][usecase].
+[usecase]: docs/uml/UML_Class_Diagram.png
+
 
 > **Ignored from VCS** (recommended via `.gitignore`): `.venv/`, `dist/`, `build/`, `__pycache__/`, `*.spec`, `carrental.db`, logs, and large build archives.
 
@@ -256,7 +264,4 @@ See the bundled `LICENSE` file for the full text.
 
 If you use or extend this project, please retain attribution. Contributions and suggestions are welcome.
 
-See the [Use Case Diagram][usecase].
-
-[usecase]: docs/uml/UML_Use_Case_Diagram.png
 
