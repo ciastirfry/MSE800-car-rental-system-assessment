@@ -140,6 +140,8 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 **Scripts** (`scripts/`)
 - `build_windows.bat` — Windows (CMD) build script; robust path handling; uses `py -3.x` if available.
 
+---
+
 ## Project Structure & File Purposes
 
 ```
