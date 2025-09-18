@@ -1,17 +1,35 @@
-MIT License  # license name
-Copyright (c) 2025  # year
-Permission is hereby granted, free of charge, to any person obtaining a copy  # permission
-of this software and associated documentation files (the "Software"), to deal  # scope
-in the Software without restriction, including without limitation the rights  # more scope
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  # rights
-copies of the Software, and to permit persons to do so, subject to the  # permission
-following conditions:  # conditions
-The above copyright notice and this permission notice shall be included in  # notice
-all copies or substantial portions of the Software.  # scope
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  # disclaimer
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  # disclaimer
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  # disclaimer
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  # liability
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  # liability
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  # usage
-SOFTWARE.  # end
+Educational Use License (Student-Only) — Based on MIT Terms
+SPDX-License-Identifier: LicenseRef-MSE-Student-Only
+
+Copyright (c) 2025 Fredierick Saladas
+
+Preamble
+This software was created as part of the Master of Software Engineering (MSE) coursework.
+It is intended for study, teaching, assessment, and related academic activities only.
+
+Permission
+Permission is hereby granted, free of charge, to students, instructors, examiners, and academic
+staff affiliated with accredited educational institutions, to use, copy, modify, and distribute
+this software and its documentation for personal learning, coursework, assessment, and teaching
+purposes only (“Academic Use”).
+
+Restrictions
+- No Commercial Use: You may not use, copy, modify, merge, publish, distribute, sublicense,
+  or sell this software or derivative works for any commercial purpose, including internal
+  business operations or consulting.
+- No Production Use: You may not deploy this software to any production environment intended
+  for real customers or revenue-generating activity.
+- Redistribution: Redistribution outside Academic Use requires prior written permission from
+  the copyright holder.
+- Attribution: All copies or substantial portions must retain this license, the copyright
+  notice above, and clear attribution to the original author(s).
+
+Disclaimer
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Contact
+For permissions beyond Academic Use, contact the author.

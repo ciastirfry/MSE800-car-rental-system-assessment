@@ -1,3 +1,4 @@
-# Sequence Diagram
+# Car Rental System — Sequence Diagram
+- Customer makes booking; Admin reviews (Approve/Reject); Admin manages cars (Add/Update/Delete).
 
-(Export your diagram image here or describe a key flow like Booking.)
+![alt text](UML_Sequence_Diagram.png)
