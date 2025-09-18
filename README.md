@@ -195,12 +195,12 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 - See the [Use Case Diagram][usecase].
 
 [usecase]: docs/uml/UML_Use_Case_Diagram.png
-- See the [Sequence Diagram][usecase].
+- See the [Sequence Diagram][usecase1].
 
-[usecase]: docs/uml/UML_Sequence_Diagram.png
-- See the [Class Diagram][usecase].
+[usecase1]: docs/uml/UML_Sequence_Diagram.png
+- See the [Class Diagram][usecase2].
 
-[usecase]: docs/uml/UML_Class_Diagram.png
+[usecase2]: docs/uml/UML_Class_Diagram.png
 
 
 > **Ignored from VCS** (recommended via `.gitignore`): `.venv/`, `dist/`, `build/`, `__pycache__/`, `*.spec`, `carrental.db`, logs, and large build archives.
