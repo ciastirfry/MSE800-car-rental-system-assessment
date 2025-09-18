@@ -1,3 +1,4 @@
-# Class Diagram
+# Class Diagram 
+ - CLI depends on services; services on repositories; repositories on Database. Domain includes User, Car, Booking; RentalService uses a PricingStrategy.
 
-(Export your diagram image here or list classes and relationships.)
+![alt text](UML_Class_Diagram.png)
