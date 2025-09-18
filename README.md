@@ -151,11 +151,10 @@ Use the **Seeder executable** (or run `tools/seed_data.py` from source). It is *
 ├─ README.md                     # This file (place at repo root)
 ├─ requirements.txt              # Python dependencies
 ├─ docs/
-│  ├─ uml/
-│  │  ├─ class.md                # Class Diagram
-│  │  ├─ sequence.md             # Sequence Diagram
-│  │  └─ use_case.md             # Use Case Diagram
-│  └─ maintenance_support.md     # Maintenance & Support Plan
+│  └─ uml/
+│     ├─ class.md                # Class Diagram
+│     ├─ sequence.md             # Sequence Diagram
+│     └─ use_case.md             # Use Case Diagram
 ├─ scripts/
 │  └─ build_windows.bat          # Windows (CMD) packager
 ├─ tools/
