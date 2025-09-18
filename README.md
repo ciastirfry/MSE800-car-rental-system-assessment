@@ -24,7 +24,8 @@ This README is written for **Users** and **Programmers** and covers configuratio
 8. [Testing](#testing)
 9. [Known Bugs / Issues](#known-bugs--issues)
 10. [License](#license)
-11. [Credits](#credits)
+11. [What I Learned](#what-i-learned)
+12. [Credits](#credits)
 
 ---
 
@@ -260,11 +261,51 @@ See the bundled `LICENSE` file for the full text.
 
 ---
 
+## What I Learned
+
+**Architecture & Design**
+- Designed a clean, layered architecture (CLI → Services → Repositories → SQLite) that keeps UI, business logic, and data access separate.
+- Applied patterns intentionally:
+  - **Repository** to isolate SQL and make services testable.
+  - **Strategy** for pricing so the system can switch between daily or weekday/weekend rates without rewriting services.
+- Modeled the system with UML (Use Case, Class, Sequence).
+
+**Data & Seeding**
+- Controlled schema changes using SQLite `PRAGMA user_version` to **freeze the DB structure**.
+- Wrote an **idempotent seeder** to create an admin and sample cars without altering the schema.
+- Ensured the DB file is created **next to the executable** in packaged builds and in the **current working directory** when running from source.
+
+**Packaging & Tooling**
+- Built cross-platform executables with **PyInstaller** and handled common pitfalls (missing entry paths, venv isolation, Windows launcher detection).
+- Created robust **build and test batch scripts** that set up a venv, install dependencies, and run commands consistently on Windows.
+
+**Testing & Quality**
+- Set up **pytest** with fixtures that isolate each test in a temp folder and **reset the DB singleton** to avoid cross-test contamination.
+- Generated **coverage** and **HTML test reports**; learned how to make verbose and focused test runs (`-vv`, `-k`, `--tb=short`, `-l`).
+
+**Documentation & Communication**
+- Produced a comprehensive **README**, a **Maintenance & Support** guide, and a **presentation** that explain installation, operation, testing, and known limitations.
+- Learned to link images as **clickable links** (not embedded) in Markdown when needed.
+
+**Challenges I Solved**
+- Fixed PyInstaller path and environment issues (e.g., “pyinstaller not recognized”, conda/venv conflicts).
+- Clarified DB path logic for both source and frozen (packaged) modes.
+
+**Current Limitations (Accepted for Coursework)**
+- **CLI only** (no GUI/Web); **no payments** or email notifications.
+- **Basic** booking overlap checks; simplified date handling.
+- SQLite is **single-writer** oriented—fine for demos but not for heavy concurrency.
+
+**Next Steps (If Continued)**
+- Add stronger booking conflict checks and richer admin reports.
+- Introduce a lightweight GUI/Web front end.
+- Formalize DB **migrations** for future schema changes and expand the test suite for edge cases.
+
+---
+
 ## Credits
 **Developer:** Fredierick “Fred” Saladas — (GitHub: [@ciastirfry](https://github.com/ciastirfry/MSE800-car-rental-system-assessment))  
 **Course/Context:** Master of Software Engineering (Yoobee) — *Professional Software Engineering: Car Rental System*  
 **Acknowledgments:** Classmates and instructors for guidance and feedback.
 
 If you use or extend this project, please retain attribution. Contributions and suggestions are welcome.
-
-
