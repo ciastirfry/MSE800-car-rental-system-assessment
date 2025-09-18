@@ -256,3 +256,7 @@ See the bundled `LICENSE` file for the full text.
 
 If you use or extend this project, please retain attribution. Contributions and suggestions are welcome.
 
+See the [Use Case Diagram][usecase].
+
+[usecase]: docs/uml/UML_Use_Case_Diagram.png
+
